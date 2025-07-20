@@ -126,7 +126,7 @@ const isHomePage = Astro.url.pathname === "/";
 		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
-	<body class="bg-[url('/bg.png')] bg-cover bg-center bg-fixed">
+	<body>
 		<!-- NAVIGATION BAR -->
 		<!-- <Nav /> -->
 		<slot />
@@ -213,6 +213,21 @@ const isHomePage = Astro.url.pathname === "/";
 				font-weight: normal;
 				font-style: normal;
 				font-display: swap;
+			}
+
+			body::before {
+				content: '';
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: url('/bg.png');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				will-change: transform;
+				z-index: -1;
 			}
 
 			html {
