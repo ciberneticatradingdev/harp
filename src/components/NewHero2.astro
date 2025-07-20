@@ -1,4 +1,5 @@
 ---
+import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } from '../utils/utils';
 ---
 
 <section id="hero" class="w-full min-h-screen max-h-screen bg-[#027dfe] flex flex-col overflow-hidden relative">
@@ -12,26 +13,26 @@
     
     <!-- Desktop Navigation Links -->
     <div class="hidden desktop:flex items-center space-x-6 xl:space-x-8">
-      <a href="https://letsbonk.fun/token/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" target="_blank" rel="noopener noreferrer" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
+      <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
         CONTRACT
       </a>
       <a href="#" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
         ABOUT
       </a>
-      <a href="https://x.com/i/communities/1944928532431302971" target="_blank" rel="noopener noreferrer" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
+      <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
         TWITTER
       </a>
-      <a href="https://www.tiktok.com/@chipmunksoftiktok?lang=en" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
+      <a href={TIKTOK_URL} class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
         TIKTOK
       </a>
-      <a href="https://dexscreener.com/solana/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
+      <a href={DEXSCREENER_URL} class="font-semibold nav-link text-white text-sm xl:text-lg border border-transparent hover:border-white p-2 rounded-lg transition-colors duration-200 hover:no-underline">
         DEXSCREENER
       </a>
     </div>
     
     <!-- Desktop CTA Button -->
-    <a href="https://letsbonk.fun/token/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" target="_blank" rel="noopener noreferrer" class="hidden desktop:flex bg-white hover:bg-gray-100 text-black font-bold text-sm xl:text-base px-3 xl:px-6 py-2 xl:py-3 rounded-lg border-2 border-black shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 items-center justify-center hover:no-underline">
-      BUY ON Pump
+    <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="hidden desktop:flex bg-white hover:bg-gray-100 text-black font-bold text-sm xl:text-base px-3 xl:px-6 py-2 xl:py-3 rounded-lg border-2 border-black shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 items-center justify-center hover:no-underline">
+      BUY ON BONK
     </a>
     
     <!-- Mobile Menu Button -->
@@ -51,25 +52,25 @@
       </button>
       <!-- Mobile Navigation Links -->
        <div class="flex flex-col space-y-6 mb-8">
-         <a href="https://letsbonk.fun/token/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" target="_blank" rel="noopener noreferrer" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
+         <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
            CONTRACT
          </a>
          <a href="#" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
            ABOUT
          </a>
-         <a href="https://x.com/i/communities/1944928532431302971" target="_blank" rel="noopener noreferrer" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
+         <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
            TWITTER
          </a>
-         <a href="https://www.tiktok.com/@chipmunksoftiktok?lang=en" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
+         <a href={TIKTOK_URL} class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
            TIKTOK
          </a>
-         <a href="https://dexscreener.com/solana/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
+         <a href={DEXSCREENER_URL} class="block text-white font-bold text-xl hover:text-white transition-colors duration-200 py-2 border-b border-black/20">
            DEXSCREENER
          </a>
        </div>
        
        <!-- Mobile CTA Button -->
-       <a href="https://letsbonk.fun/token/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" target="_blank" rel="noopener noreferrer" class="bg-black hover:bg-gray-800 text-white font-bold text-lg px-8 py-4 rounded-lg border-2 border-black shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 text-center block hover:no-underline">
+       <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="bg-black hover:bg-gray-800 text-white font-bold text-lg px-8 py-4 rounded-lg border-2 border-black shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 text-center block hover:no-underline">
          BUY $Frib
        </a>
     </div>
@@ -92,11 +93,11 @@
       
       <!-- Subtitle -->
       <p class="text-center text-xl sm:text-2xl desktop:text-xl text-white font-semibold mb-8 max-w-xl mx-auto desktop:mx-0">
-        PRIB IDK PRIB BORN IN THE SOLANA TRENCHES BCS HE IS A COOL GUY. LONG LIVE PUMP FUN 
+        PRIB IDK PRIB BORN IN THE SOLANA TRENCHES BCS HE IS A COOL GUY. LONG LIVE TO THE MEMECOINS 
       </p>
       
       <!-- CTA Button -->
-      <a href="https://letsbonk.fun/token/7HYWfM1rXmc1UTPinSDfvvUQJMwPM4RDvawUdLoGbonk" target="_blank" rel="noopener noreferrer" class="w-5/6 bg-white hover:scale-105 text-black font-bold text-lg sm:text-xl px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
+      <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="w-5/6 bg-white hover:scale-105 text-black font-bold text-lg sm:text-xl px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
         BUY $Frib
       </a>
     </div>
