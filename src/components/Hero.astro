@@ -1,9 +1,9 @@
 ---
-import { CA } from '../utils/utils';
+import { CA, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, BUY_URL } from '../utils/utils';
 
 ---
 
-<section class="rounded-[50px] w-full max-w-7xl mx-auto flex flex-col pt-20">
+<section id="contract" class="rounded-[50px] w-full max-w-7xl mx-auto flex flex-col pt-20">
 
 
   <div class='w-full flex flex-col items-center p-4 desktop:p-0'>
@@ -19,21 +19,21 @@ import { CA } from '../utils/utils';
 
     <div class="w-full my-10 flex flex-wrap gap-4 justify-around">
 
-      <button class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95">
+      <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
         X
-      </button>
+      </a>
 
-      <button class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95">
+      <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
         TELEGRAM
-      </button>
+      </a>
 
-      <button class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95">
+      <a href={DEXSCREENER_URL} target="_blank" rel="noopener noreferrer" class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
         DEXSCREENER
-      </button>
+      </a>
 
-      <button class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95">
-        PUMPFUN
-      </button>
+      <a href={BUY_URL} target="_blank" rel="noopener noreferrer" class="w-full fingy-title2 max-w-xl bg-white hover:scale-105 text-black font-bold text-5xl  px-8 py-4 rounded-lg border-4 border-black shadow-lg transform transition-all duration-200 active:scale-95 text-center block hover:no-underline">
+        LETSBONK
+      </a>
 
 
 

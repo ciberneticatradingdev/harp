@@ -83,19 +83,19 @@ const isHomePage = Astro.url.pathname === "/";
 		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="frib" />
+		<meta property="og:image:alt" content="bobo" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:site_name" content="frib" />
+		<meta property="og:site_name" content="bobo" />
 		<meta property="og:locale" content="en_US" />
 		
 		<!-- TWITTER/X CARD DATA -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@frib" />
-		<meta name="twitter:creator" content="@frib" />
+		<meta name="twitter:site" content="@bobo" />
+		<meta name="twitter:creator" content="@bobo" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
-		<meta name="twitter:image:alt" content="frib" />
+		<meta name="twitter:image:alt" content="bobo" />
 		
 		<!-- TELEGRAM SPECIFIC -->
 		<meta property="telegram:channel" content="@ZoomieOnSolPortal" />
@@ -126,7 +126,7 @@ const isHomePage = Astro.url.pathname === "/";
 		<!-- TITLE -->
 		<title>{title}</title>
 	</head>
-	<body class="bg-[#027dfe] ">
+	<body class="bg-[url('/bg.png')] bg-cover bg-center bg-fixed">
 		<!-- NAVIGATION BAR -->
 		<!-- <Nav /> -->
 		<slot />

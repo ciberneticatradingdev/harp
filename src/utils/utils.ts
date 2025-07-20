@@ -1,8 +1,8 @@
 // Contract Address
-export const CA = "ca";
+export const CA = "54vFp5BkWXPXZGrEVUYB64JwEwz8JsmBq3yXRM6rbonk";
 
 // Social Media Links
-export const TWITTER_URL = "https://x.com/i/";
+export const TWITTER_URL = "https://x.com/i/communities/1946930875792277807";
 export const TIKTOK_URL = "https://www.tiktok.com/";
 export const TELEGRAM_URL = "https://t.me/";
 
