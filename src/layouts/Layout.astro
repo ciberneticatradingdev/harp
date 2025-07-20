@@ -127,6 +127,40 @@ const isHomePage = Astro.url.pathname === "/";
 		<title>{title}</title>
 	</head>
 	<body>
+		<!-- BACKGROUND MUSIC -->
+		<audio autoplay loop muted id="backgroundMusic">
+			<source src="/bobo.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
+		<!-- INTRO SCREEN -->
+		<div id="introScreen" class="fixed inset-0 bg-[url('/bg.png')] bg-cover bg-center flex items-center justify-center z-50">
+			<div class="text-center">
+				<!-- BOBO CHARACTER -->
+				<div class="mb-8">
+					<img src="/fix.png" alt="bobo" class="w-48 h-48 mx-auto animate-bounce" />
+				</div>
+				<!-- TITLE -->
+				<h1 class="text-6xl md:text-8xl font-black mb-8" style="font-family: 'Amiger Cartoon', sans-serif; color: white; text-shadow: 4px 4px 0px black, -4px -4px 0px black, 4px -4px 0px black, -4px 4px 0px black;">
+					$BOBO
+				</h1>
+				<!-- SUBTITLE -->
+				<p class="text-xl md:text-2xl text-white font-bold mb-12 max-w-2xl mx-4" style="text-shadow: 2px 2px 0px black, -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black;">
+					The fearless explorer of the Solana blockchain!
+				</p>
+				<!-- MEET BOBO BUTTON -->
+				<button id="meetBoboBtn" class="bg-white text-black font-black text-2xl py-6 px-12 rounded-2xl border-4 border-black transition-all duration-200 transform hover:scale-105 shadow-lg" style="font-family: 'Amiger Cartoon', sans-serif;">
+					🚀 MEET BOBO
+				</button>
+			</div>
+		</div>
+
+		<!-- MUSIC CONTROLS -->
+		<div id="musicControls" class="fixed bottom-4 left-4 z-40 hidden">
+			<button id="muteToggle" class="bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-3 rounded-full transition-all duration-200 shadow-lg">
+				<span id="muteIcon">🔊</span>
+			</button>
+		</div>
 		<!-- NAVIGATION BAR -->
 		<!-- <Nav /> -->
 		<slot />
@@ -135,6 +169,51 @@ const isHomePage = Astro.url.pathname === "/";
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
+				// Manejar música de fondo
+				const audio = document.getElementById('backgroundMusic');
+				const introScreen = document.getElementById('introScreen');
+				const meetBoboBtn = document.getElementById('meetBoboBtn');
+				const musicControls = document.getElementById('musicControls');
+				const muteToggle = document.getElementById('muteToggle');
+				const muteIcon = document.getElementById('muteIcon');
+				let musicStarted = false;
+				let isMuted = false;
+
+				// Función para iniciar la música
+				function startMusic() {
+					if (!musicStarted && audio) {
+						audio.muted = false;
+						audio.play().catch(e => console.log('Audio play failed:', e));
+						musicStarted = true;
+						isMuted = false;
+						// Ocultar pantalla de intro y mostrar controles
+						introScreen.style.display = 'none';
+						musicControls.classList.remove('hidden');
+					}
+				}
+
+				// Función para toggle mute
+				function toggleMute() {
+					if (audio && musicStarted) {
+						isMuted = !isMuted;
+						audio.muted = isMuted;
+						muteIcon.textContent = isMuted ? '🔇' : '🔊';
+					}
+				}
+
+				// Función para guardar preferencia e iniciar música
+				function saveAndStartMusic() {
+					localStorage.setItem('boboMusicStarted', 'true');
+					startMusic();
+				}
+
+				// Event listeners
+				meetBoboBtn.addEventListener('click', saveAndStartMusic);
+				muteToggle.addEventListener('click', toggleMute);
+
+				// La pantalla de intro siempre se muestra al cargar la página
+				// Solo se oculta cuando el usuario hace clic en "Meet Bobo"
+
 				// Verificar si estamos en la página de inicio
 				const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index' || window.location.pathname === '/index.html';
 				
