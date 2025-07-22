@@ -1,10 +1,10 @@
 // Contract Address
-export const CA = "54vFp5BkWXPXZGrEVUYB64JwEwz8JsmBq3yXRM6rbonk";
+export const CA = "DvTjjC5GnXmqjrps8DnYPK82BApe9eWUQjbSKt8bonk";
 
 // Social Media Links
-export const TWITTER_URL = "https://x.com/i/communities/1946930875792277807";
-export const TIKTOK_URL = "https://t.me/boboportalfrog";
-export const TELEGRAM_URL = "https://t.me/boboportalfrog";
+export const TWITTER_URL = "https://x.com/i/communities/1947661023051219390";
+export const TIKTOK_URL = "https://x.com/i/communities/1947661023051219390";
+export const TELEGRAM_URL = "https://x.com/i/communities/1947661023051219390";
 
 // Trading Links
 export const BUY_URL = `https://letsbonk.fun/token/${CA}`;
