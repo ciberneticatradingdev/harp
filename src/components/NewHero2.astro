@@ -72,7 +72,7 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
 
   
   <!-- Main Content Container -->
-  <div class="main-content w-full max-w-8xl mx-auto px-4 flex flex-col desktop:flex-row items-center desktop:items-end justify-center desktop:justify-between gap-8 flex-1 pt-20 desktop:pt-0">
+  <div class="main-content w-full max-w-8xl mx-auto px-4 flex flex-col desktop:flex-row items-center desktop:items-end justify-end desktop:justify-between gap-8 flex-1 pt-20 desktop:pt-0">
 
     
     
@@ -98,13 +98,14 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
     <!-- Right Side - Character Image -->
 
     <div class="flex-1 flex justify-center desktop:justify-end items-end h-full">
-      <div class="relative flex items-end ">
+      <div class="relative flex items-end justify-center w-full h-full">
         <img 
           src="/feng.svg" 
           alt="feng" 
           class="h-auto object-contain drop-shadow-2xl drop-shadow-white object-bottom"
           loading="eager"
           fetchpriority="high"
+          style="margin-bottom: 0; padding-bottom: 0;"
         >
       </div>
     </div>
@@ -150,13 +151,14 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
       height: auto;
       max-height: none;
       padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-bottom: 0;
     }
     
     .main-content {
       min-height: calc(100vh - 4rem);
       padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-bottom: 0;
+      justify-content: flex-end !important;
     }
     
     .fingy-title {
@@ -194,7 +196,7 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
   
   @media (max-width: 480px) {
     #hero {
-      padding-bottom: 1rem;
+      padding-bottom: 0;
     }
     
     .fingy-title {
@@ -206,6 +208,8 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
     .main-content {
       gap: 1rem;
       padding-top: 0.5rem;
+      padding-bottom: 0;
+      justify-content: flex-end !important;
     }
     
     /* iPhone Safari specific adjustments */
@@ -245,7 +249,7 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
     .main-content {
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: space-between !important;
+      justify-content: flex-end !important;
       text-align: center !important;
     }
     
