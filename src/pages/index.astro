@@ -5,8 +5,10 @@ import Carrusel from "../components/believers/carrusel/CarruselIndex.astro";
 import Footer from "../components/Footer.astro";
 
 import NewHero2 from "../components/NewHero2.astro";
+import NewHero3 from "../components/NewHero3.astro";
 import Gallery from "../components/Gallery.astro";
 import RebelGuineaPig from "../components/RebelGuineaPig.astro";
+import TrainingGallery from "../components/TrainingGallery.astro";
 
 
 ---
@@ -20,8 +22,11 @@ import RebelGuineaPig from "../components/RebelGuineaPig.astro";
 >
 
   <NewHero2/>
-   <Carrusel/> 
-
+   <Carrusel/>
+   <NewHero3/> 
+   <Carrusel/>
+   <TrainingGallery/>
+   <!-- <Footer/> -->
 
 
   <!-- <main class="min-h-screen flex flex-col items-center text-white py-8 px-1.5 relative overflow-hidden"> 
@@ -30,8 +35,6 @@ import RebelGuineaPig from "../components/RebelGuineaPig.astro";
     <Gallery/>
 
    </main>  -->
-
-   <!-- <Footer/> -->
 
 <style>
   ul {
@@ -92,6 +95,7 @@ import RebelGuineaPig from "../components/RebelGuineaPig.astro";
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const scrollContent = document.getElementById('scrollContent');
+    if (!scrollContent) return;
     const container = scrollContent.parentElement;
     let lastScrollY = window.scrollY;
     let ticking = false;
