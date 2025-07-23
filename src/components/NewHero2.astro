@@ -2,7 +2,7 @@
 import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } from '../utils/utils';
 ---
 
-<section id="hero" class="w-full min-h-screen max-h-screen flex flex-col overflow-hidden relative">
+<section id="hero" class="w-full min-h-screen flex flex-col overflow-hidden relative">
 
     <!-- Navigation Bar -->
   <nav class="w-full px-4 sm:px-6 py-4 flex items-center justify-between z-20 absolute top-0 left-0">
@@ -147,20 +147,85 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
   @media (max-width: 768px) {
     #hero {
       min-height: 100vh;
+      height: auto;
+      max-height: none;
       padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    .main-content {
+      min-height: calc(100vh - 4rem);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
     
     .fingy-title {
       font-size: 4rem;
       line-height: 4.5rem;
+      margin-bottom: 1rem;
     }
+    
+    /* Ensure image container takes appropriate space and stays at bottom */
+     .flex-1:last-child {
+       flex: 0 0 auto;
+       max-height: 50vh;
+       display: flex;
+       align-items: flex-end;
+       justify-content: center;
+       position: relative;
+     }
+     
+     .flex-1:last-child > div {
+       display: flex;
+       align-items: flex-end;
+       justify-content: center;
+       height: 100%;
+       width: 100%;
+     }
+     
+     .flex-1:last-child img {
+       max-height: 45vh;
+       width: auto;
+       object-fit: contain;
+       object-position: bottom;
+       display: block;
+     }
   }
   
   @media (max-width: 480px) {
+    #hero {
+      padding-bottom: 1rem;
+    }
+    
     .fingy-title {
       font-size: 3rem;
       line-height: 3.5rem;
+      margin-bottom: 0.5rem;
     }
+    
+    .main-content {
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+    
+    /* iPhone Safari specific adjustments */
+     .flex-1:last-child {
+       max-height: 40vh;
+       align-items: flex-end;
+       justify-content: center;
+     }
+     
+     .flex-1:last-child > div {
+       align-items: flex-end;
+       justify-content: center;
+       height: 100%;
+     }
+     
+     .flex-1:last-child img {
+       max-height: 35vh;
+       object-position: bottom;
+       align-self: flex-end;
+     }
   }
   
   /* iPad Pro specific adjustments */
@@ -180,7 +245,7 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
     .main-content {
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: center !important;
+      justify-content: space-between !important;
       text-align: center !important;
     }
     
@@ -193,6 +258,24 @@ import { CA, TWITTER_URL, TIKTOK_URL, TELEGRAM_URL, BUY_URL, DEXSCREENER_URL } f
       text-align: center !important;
       margin-left: auto !important;
       margin-right: auto !important;
+    }
+    
+    /* iPad Pro image positioning */
+    .flex-1:last-child {
+      align-items: flex-end !important;
+      justify-content: center !important;
+      flex: 0 0 auto !important;
+    }
+    
+    .flex-1:last-child > div {
+      align-items: flex-end !important;
+      justify-content: center !important;
+      height: 100% !important;
+    }
+    
+    .flex-1:last-child img {
+      object-position: bottom !important;
+      align-self: flex-end !important;
     }
   }
 </style>
