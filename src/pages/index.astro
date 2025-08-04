@@ -1,40 +1,300 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Carrusel from "../components/believers/carrusel/CarruselIndex.astro";
-import Footer from "../components/Footer.astro";
-
-import NewHero2 from "../components/NewHero2.astro";
-import NewHero3 from "../components/NewHero3.astro";
-import Gallery from "../components/Gallery.astro";
-import RebelGuineaPig from "../components/RebelGuineaPig.astro";
-import TrainingGallery from "../components/TrainingGallery.astro";
 
 
 ---
 
 <Layout
-	title="feng 风 | $feng"
-	description="feng 风 Community! Meet the amazing feng 风"
-	keywords="memecoin, $feng, feng 风 memecoin"
+	title=""
+	description=""
+	keywords="memecoin, drog"
 	canonicalURL=""
 	robots="index, follow"
 >
+  <!-- seccion 1 -->
 
-  <NewHero2/>
-   <Carrusel/>
-   <NewHero3/> 
-   <Carrusel/>
-   <TrainingGallery/>
-   <!-- <Footer/> -->
+  <div class="min-h-screen bg-[#00c0ff] flex flex-col items-center py-10">
+    <h1 class="text-white text-4xl font-bold">
+      drog
+    </h1>
+
+    <img src="/hero.jpg" alt="drog logo" class="w-96 h-96 mt-10"/>
+
+    <h1 class="text-white mt-8 text-6xl font-bold">
+      hey look
+    </h1>
+
+    <button class="p-4 px-8 text-2xl mt-10 bg-[#62a14d] rounded-[35px] "> 
+      it's drog
+    </button>
+
+    <div class="w-full gap-8 mt-6 flex justify-center">
+      <img src="/social/x-icon.svg" alt="x icon" class="w-8 h-8">
+      <img src="/social/tg-icon.svg" alt="x icon" class="w-8 h-8">
+      <img src="/social/dex-icon.svg" alt="x icon" class="w-8 h-8">
+
+    </div>
+
+  </div>
 
 
-  <!-- <main class="min-h-screen flex flex-col items-center text-white py-8 px-1.5 relative overflow-hidden"> 
-    <Hero/> 
-    <RebelGuineaPig/>
-    <Gallery/>
+  <!-- seccion 2 -->
+  <div class="min-h-screen bg-[#00c0ff] flex flex-col items-center justify-center py-10 overflow-hidden relative">
+    <!-- Texto principal con efecto de desbordamiento -->
+    <div class="text-center overflow-hidden w-full">
+      <div class="text-white/20 font-bold leading-tight whitespace-nowrap">
+        <div class="text-[12vw] md:text-[10vw] lg:text-[8vw] transform scale-150">
+          free create live enjoy
+        </div>
+        <div class="text-[12vw] md:text-[10vw] lg:text-[8vw] transform scale-150 mt-4">
+          drog dream love
+        </div>
+        <div class="text-[12vw] md:text-[10vw] lg:text-[8vw] transform scale-150 mt-4">
+          happiness god future
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pequeñas ranas decorativas -->
+    <div class="absolute top-20 left-10 text-6xl animate-bounce">
+      🐸
+    </div>
+    <div class="absolute top-40 right-20 text-4xl animate-bounce delay-300">
+      🐸
+    </div>
+    <div class="absolute bottom-32 left-20 text-5xl animate-bounce delay-500">
+      🐸
+    </div>
+    <div class="absolute bottom-20 right-10 text-3xl animate-bounce delay-700">
+      🐸
+    </div>
+    
 
-   </main>  -->
+  </div>
+
+
+  <!-- seccion 3 -->
+
+
+    <!-- seccion 2 -->
+    <div class="bg-[#00c0ff] flex flex-col items-center justify-center py-20 gap-2">
+      <text class="text-white text-2xl font-bold">only on</text>
+      
+      <a class="text-white/80 text-7xl" href="">letsbonk.fun</a>
+
+    </div>
+
+
+
+    <!-- section 4 memes -->
+    <div class="min-h-screen bg-[#00c0ff] py-20 px-4">
+      
+      <!-- Masonry grid of memes -->
+      <div class="max-w-7xl mx-auto">
+        <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+          <!-- Meme 1 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/01.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/01.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 2 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/02.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/02.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 3 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/03.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/03.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 4 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/04.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/04.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 5 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/05.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/05.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 6 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/06.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/06.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 7 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/07.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/07.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 8 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/08.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/08.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 9 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/09.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/09.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 10 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/010.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/010.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Meme 11 -->
+          <div class="meme-item break-inside-avoid mb-4 cursor-pointer" data-image="/gallery/011.jpeg">
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="/gallery/011.jpeg" alt="Drog meme" class="w-full h-auto transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <button class="bg-[#62a14d] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4a8a3a] transition-colors">
+                  View Meme
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- //seccion 5 / footer -->
+    <footer class="w-full bg-[#00c0ff] text-white py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <!-- Desktop Layout -->
+        <div class="hidden md:flex items-center justify-between">
+          <!-- Logo/Title -->
+          <div class="flex items-center space-x-4">
+            <!-- <img src="/feng.svg" alt="Frog" class="w-12 h-12"> -->
+            <h2 class="text-4xl font-bold text-white">long live drog</h2>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex items-center space-x-8">
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-lg font-medium">
+              buy fwog
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-lg font-medium">
+              x/twitter
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-lg font-medium">
+              telegram
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-lg font-medium">
+              dexscreener
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Layout -->
+        <div class="md:hidden flex flex-col items-center text-center space-y-8">
+          <!-- Logo/Title -->
+          <div class="flex flex-col items-center space-y-4">
+            <img src="/feng.svg" alt="Frog" class="w-16 h-16">
+            <h2 class="text-3xl font-bold text-green-400">its just a fwog</h2>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex flex-col space-y-4 w-full">
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-xl font-medium py-3 border-b border-gray-800">
+              buy fwog
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-xl font-medium py-3 border-b border-gray-800">
+              x/twitter
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-xl font-medium py-3 border-b border-gray-800">
+              telegram
+            </a>
+            <a href="#" class="text-white hover:text-green-400 transition-colors text-xl font-medium py-3">
+              dexscreener
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Modal para ver imágenes -->
+    <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+      <div class="relative max-w-4xl max-h-full">
+        <button id="closeModal" class="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition-colors">
+          ×
+        </button>
+        <img id="modalImage" src="" alt="Meme" class="max-w-full max-h-full object-contain rounded-lg">
+      </div>
+    </div>
+
+
+
+
 
 <style>
   ul {
@@ -144,4 +404,48 @@ import TrainingGallery from "../components/TrainingGallery.astro";
 
     updatePosition();
   });
+  
+  // Modal functionality for memes
+   document.addEventListener('DOMContentLoaded', () => {
+     const modal = document.getElementById('imageModal');
+     const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+     const closeModal = document.getElementById('closeModal');
+     const memeItems = document.querySelectorAll('.meme-item');
+     
+     // Open modal when clicking on meme items
+     memeItems.forEach(item => {
+       item.addEventListener('click', () => {
+         const imageUrl = item.getAttribute('data-image');
+         if (modalImage && imageUrl) {
+           modalImage.src = imageUrl;
+         }
+         modal?.classList.remove('hidden');
+         modal?.classList.add('flex');
+         document.body.style.overflow = 'hidden';
+       });
+     });
+    
+    // Close modal
+     const closeModalFunction = () => {
+       modal?.classList.add('hidden');
+       modal?.classList.remove('flex');
+       document.body.style.overflow = 'auto';
+     };
+     
+     closeModal?.addEventListener('click', closeModalFunction);
+     
+     // Close modal when clicking outside the image
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModalFunction();
+        }
+      });
+      
+      // Close modal with ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+          closeModalFunction();
+        }
+      });
+    });
 </script>
