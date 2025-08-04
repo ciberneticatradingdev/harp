@@ -7,6 +7,10 @@ export default {
 				'ipad-pro': '1024px', // iPad Pro específico
 				'desktop': '1280px', // Desktop real
 			},
+			fontFamily: {
+				'sans': ['Byrd', 'Byrd Fallback', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+				'byrd': ['Byrd', 'Byrd Fallback', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [],

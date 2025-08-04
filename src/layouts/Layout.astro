@@ -42,6 +42,40 @@ const isHomePage = Astro.url.pathname === "/";
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" as="style" />
 		<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" />
 		<style>
+			/* Font Face Declaration for Byrd */
+			@font-face {
+				font-family: 'Byrd';
+				src: url('/font/byrd.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+			
+			@font-face {
+				font-family: 'Byrd';
+				src: url('/font/byrd.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
+			
+			@font-face {
+				font-family: 'ByrdMedium';
+				src: url('/font/byrdMedium.woff2') format('woff2');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+			
+			/* Global Font Family */
+			* {
+				font-family: 'Byrd', 'Byrd Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+			}
+			
+			html, body {
+				font-family: 'Byrd', 'Byrd Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+			}
+			
 			/* Critical CSS for immediate rendering */
 			@keyframes fadeInOut {
 				0%, 100% { opacity: 0.2; transform: translateY(10px); }
