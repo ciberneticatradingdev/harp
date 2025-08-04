@@ -1,14 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+// URLs Configuration
+const CA = "WILL UPDATE SOON";
+const LETSBONK_URL = `https://letsbonk.fun/token/${CA}`;
+const TWITTER_URL = "https://x.com/DrogOnBonk";
+const TELEGRAM_URL = "https://t.me/";
+const DEXSCREENER_URL = `https://dexscreener.com/solana/${CA}`;
 
 ---
 
 <Layout
-	title=""
-	description=""
-	keywords="memecoin, drog"
-	canonicalURL=""
+	title="Drog - The Frog Memecoin | Buy Drog on LetsBonk"
+	description="Drog memecoin, drog the frog - Join the ultimate frog-themed memecoin community. Buy, trade and enjoy Drog on LetsBonk.fun. Free create live enjoy drog dream love."
+	keywords="drog memecoin, drog the frog, memecoin, frog coin, letsbonk, solana memecoin, crypto frog, drog coin, meme token"
+	canonicalURL="https://drogonbonk.fun"
 	robots="index, follow"
 >
   <!-- seccion 1 -->
@@ -24,18 +30,18 @@ import Layout from "../layouts/Layout.astro";
       hey look
     </h1>
 
-    <a href="https://letsbonk.fun" target="_blank" class="p-4 font-thin px-8 text-2xl mt-10 bg-[#62a14d] rounded-[35px] byrd-medium-btn inline-block text-white hover:bg-[#4a8a3a] transition-colors text-center"> 
+    <a href={LETSBONK_URL} target="_blank" class="p-4 font-thin px-8 text-2xl mt-10 bg-[#62a14d] rounded-[35px] byrd-medium-btn inline-block text-white hover:bg-[#4a8a3a] transition-colors text-center"> 
       it's drog
     </a>
 
     <div class="w-full gap-8 mt-6 flex justify-center">
-      <a href="https://x.com/drogcoin" target="_blank" class="hover:scale-110 transition-transform">
+      <a href={TWITTER_URL} target="_blank" class="hover:scale-110 transition-transform">
         <img src="/social/x-icon.svg" alt="x icon" class="w-8 h-8">
       </a>
-      <a href="https://t.me/drogcoin" target="_blank" class="hover:scale-110 transition-transform">
+      <a href={TELEGRAM_URL} target="_blank" class="hover:scale-110 transition-transform">
         <img src="/social/tg-icon.svg" alt="telegram icon" class="w-8 h-8">
       </a>
-      <a href="https://dexscreener.com/solana/drog" target="_blank" class="hover:scale-110 transition-transform">
+      <a href={DEXSCREENER_URL} target="_blank" class="hover:scale-110 transition-transform">
         <img src="/social/dex-icon.svg" alt="dexscreener icon" class="w-8 h-8">
       </a>
     </div>
@@ -85,7 +91,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="bg-[#00c0ff] flex flex-col items-center justify-center py-20 gap-2">
       <text class="text-white text-2xl font-bold">only on</text>
       
-      <a class="text-white/80 text-5xl sm:text-7xl underline hover:scale-105 transition-all" href="https://letsbonk.fun" target="_blank">letsbonk.fun</a>
+      <a class="text-white/80 text-5xl sm:text-7xl underline hover:scale-105 transition-all" href={LETSBONK_URL} target="_blank">letsbonk.fun</a>
 
     </div>
 
@@ -239,22 +245,21 @@ import Layout from "../layouts/Layout.astro";
         <div class="hidden md:flex items-center justify-between">
           <!-- Logo/Title -->
           <div class="flex items-center space-x-4">
-            <!-- <img src="/feng.svg" alt="Frog" class="w-12 h-12"> -->
             <h2 class="text-4xl font-bold text-white">long live drog</h2>
           </div>
           
           <!-- Social Links -->
           <div class="flex items-center space-x-8">
-            <a href="https://letsbonk.fun" target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
+            <a href={LETSBONK_URL} target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
               buy drog
             </a>
-            <a href="https://x.com/drogcoin" target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
+            <a href={TWITTER_URL} target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
               x/twitter
             </a>
-            <a href="https://t.me/drogcoin" target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
+            <a href={TELEGRAM_URL} target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
               telegram
             </a>
-            <a href="https://dexscreener.com/solana/drog" target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
+            <a href={DEXSCREENER_URL} target="_blank" class="text-white scale-105 transition-all text-lg font-medium">
               dexscreener
             </a>
           </div>
@@ -264,22 +269,21 @@ import Layout from "../layouts/Layout.astro";
         <div class="md:hidden flex flex-col items-center text-center space-y-8">
           <!-- Logo/Title -->
           <div class="flex flex-col items-center space-y-4">
-            <img src="/feng.svg" alt="Frog" class="w-16 h-16">
-            <h2 class="text-3xl font-bold text-green-400">long live drog</h2>
+            <h2 class="text-3xl font-bold text-white">long live drog</h2>
           </div>
           
           <!-- Social Links -->
           <div class="flex flex-col space-y-4 w-full">
-            <a href="https://letsbonk.fun" target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
+            <a href={LETSBONK_URL} target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
               buy drog
             </a>
-            <a href="https://x.com/drogcoin" target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
+            <a href={TWITTER_URL} target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
               x/twitter
             </a>
-            <a href="https://t.me/drogcoin" target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
+            <a href={TELEGRAM_URL} target="_blank" class="text-white scale-105  transition-all text-xl font-medium py-3 border-b border-gray-800">
               telegram
             </a>
-            <a href="https://dexscreener.com/solana/drog" target="_blank" class="text-white scale-105 transition-all text-xl font-medium py-3">
+            <a href={DEXSCREENER_URL} target="_blank" class="text-white scale-105 transition-all text-xl font-medium py-3">
               dexscreener
             </a>
           </div>
