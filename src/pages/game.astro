@@ -10,14 +10,17 @@ import Layout from '../layouts/Layout.astro';
   robots="index, follow"
 >
   <div id="gameContainer" class="w-full h-screen bg-gradient-to-b from-[#00c0ff] to-[#0099cc] flex items-center justify-center overflow-hidden">
-    <canvas id="gameCanvas" class="border-2 border-white/20 rounded-lg shadow-2xl"></canvas>
+    <canvas id="gameCanvas" class="md:border-2 md:border-white/20 md:rounded-lg md:shadow-2xl"></canvas>
     
     <!-- Game UI Overlay -->
     <div id="gameUI" class="absolute inset-0 pointer-events-none">
       <!-- Start Screen -->
       <div id="startScreen" class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 pointer-events-auto">
         <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-          <h1 class="text-6xl font-bold text-white mb-4 drop-shadow-lg">🐸 DROG BIRD</h1>
+          <div class="flex items-center justify-center gap-4 mb-4">
+            <img src="/game/drog.png" alt="Drog" class="w-16 h-16" />
+            <h1 class="text-6xl font-bold text-white drop-shadow-lg">FLAPPY DROG</h1>
+          </div>
           <p class="text-xl text-white/90 mb-6">Tap or press SPACE to fly!</p>
           <button id="startBtn" class="bg-[#62a14d] hover:bg-[#4a8a3a] text-white font-bold py-4 px-8 rounded-full text-xl transition-all transform hover:scale-105 shadow-lg">
             START GAME
@@ -44,6 +47,13 @@ import Layout from '../layouts/Layout.astro';
         <span id="currentScore">0</span>
       </div>
       
+      <!-- Home Button -->
+      <div class="absolute top-4 left-4 pointer-events-auto">
+        <a href="/" class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold py-2 px-4 rounded-full text-sm transition-all transform hover:scale-105 border border-white/30 hover:no-underline">
+          🏠 Home
+        </a>
+      </div>
+      
       <!-- Mobile Controls Hint -->
       <div id="mobileHint" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 text-center hidden">
         <p class="text-lg">Tap anywhere to fly!</p>
@@ -51,6 +61,33 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </Layout>
+
+<style>
+  /* Mobile fullscreen styles */
+  @media (max-width: 768px) {
+    #gameContainer {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    
+    #gameCanvas {
+      display: block;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* Hide mobile browser UI */
+    body {
+      overflow: hidden;
+    }
+    
+    /* Ensure full viewport usage */
+    html, body {
+      height: 100vh;
+      height: 100dvh; /* Dynamic viewport height for mobile */
+    }
+  }
+</style>
 
 <script>
   class FlappyBird {
@@ -63,13 +100,36 @@ import Layout from '../layouts/Layout.astro';
       this.gameState = 'start'; // 'start', 'playing', 'gameOver'
       this.score = 0;
       this.bestScore = parseInt(localStorage.getItem('drogBirdBest') || '0');
+      this.lastScoreMilestone = 0; // Track last milestone for score sound
       
-      // Bird properties
+      // Audio setup
+      this.jumpSound = new Audio('/game/jump.mp3');
+      this.scoreSound = new Audio('/game/score.mp3');
+      this.jumpSound.volume = 0.3;
+      this.scoreSound.volume = 0.4;
+      this.audioEnabled = true;
+      
+      // Drog image setup
+      this.drogImage = new Image();
+      this.drogImage.src = '/game/drog.png';
+      this.imageLoaded = false;
+      this.drogImage.onload = () => {
+        this.imageLoaded = true;
+      };
+      this.drogImage.onerror = () => {
+        console.warn('Could not load drog.png, using fallback');
+        this.imageLoaded = false;
+      };
+      
+      // Preload audio
+      this.preloadAudio();
+      
+      // Bird properties - adjusted for square image
       this.bird = {
         x: this.canvas.width * 0.2,
         y: this.canvas.height / 2,
-        width: 40,
-        height: 30,
+        width: 60,
+        height: 60,
         velocity: 0,
         gravity: 0.6,
         jumpPower: -12,
@@ -95,22 +155,66 @@ import Layout from '../layouts/Layout.astro';
       this.gameLoop(0);
     }
     
+    preloadAudio() {
+      // Preload audio files
+      this.jumpSound.load();
+      this.scoreSound.load();
+      
+      // Handle audio errors gracefully
+      this.jumpSound.addEventListener('error', () => {
+        console.warn('Could not load jump sound');
+        this.audioEnabled = false;
+      });
+      
+      this.scoreSound.addEventListener('error', () => {
+        console.warn('Could not load score sound');
+      });
+    }
+    
+    playSound(sound) {
+      if (!this.audioEnabled) return;
+      
+      try {
+        sound.currentTime = 0;
+        sound.play().catch(e => {
+          console.warn('Audio play failed:', e);
+        });
+      } catch (e) {
+        console.warn('Audio error:', e);
+      }
+    }
+    
     setupCanvas() {
       const container = document.getElementById('gameContainer')!;
       const containerRect = container.getBoundingClientRect();
       
-      // Responsive canvas sizing
-      const maxWidth = Math.min(containerRect.width * 0.9, 800);
-      const maxHeight = Math.min(containerRect.height * 0.9, 600);
+      // Detect mobile devices
+      const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
       
-      // Maintain aspect ratio
-      const aspectRatio = 4 / 3;
-      let canvasWidth = maxWidth;
-      let canvasHeight = maxWidth / aspectRatio;
+      let canvasWidth, canvasHeight;
       
-      if (canvasHeight > maxHeight) {
-        canvasHeight = maxHeight;
-        canvasWidth = maxHeight * aspectRatio;
+      if (isMobile) {
+        // Mobile: use full screen
+        canvasWidth = containerRect.width;
+        canvasHeight = containerRect.height;
+        
+        // Remove any borders/padding on mobile
+        this.canvas.style.border = 'none';
+        this.canvas.style.borderRadius = '0';
+        this.canvas.style.boxShadow = 'none';
+      } else {
+        // Desktop/Tablet: maintain aspect ratio with limits
+        const maxWidth = Math.min(containerRect.width * 0.9, 800);
+        const maxHeight = Math.min(containerRect.height * 0.9, 600);
+        
+        const aspectRatio = 4 / 3;
+        canvasWidth = maxWidth;
+        canvasHeight = maxWidth / aspectRatio;
+        
+        if (canvasHeight > maxHeight) {
+          canvasHeight = maxHeight;
+          canvasWidth = maxHeight * aspectRatio;
+        }
       }
       
       this.canvas.width = canvasWidth;
@@ -162,6 +266,7 @@ import Layout from '../layouts/Layout.astro';
         this.startGame();
       } else if (this.gameState === 'playing') {
         this.bird.velocity = this.bird.jumpPower;
+        this.playSound(this.jumpSound);
       } else if (this.gameState === 'gameOver') {
         this.restartGame();
       }
@@ -170,6 +275,7 @@ import Layout from '../layouts/Layout.astro';
     startGame() {
       this.gameState = 'playing';
       this.score = 0;
+      this.lastScoreMilestone = 0;
       this.bird.y = this.canvas.height / 2;
       this.bird.velocity = 0;
       this.pipes = [];
@@ -226,6 +332,13 @@ import Layout from '../layouts/Layout.astro';
         if (!pipe.passed && pipe.x + this.pipeWidth < this.bird.x) {
           pipe.passed = true;
           this.score++;
+          
+          // Play score sound every 10 points
+          if (this.score > 0 && this.score % 10 === 0 && this.score > this.lastScoreMilestone) {
+            this.lastScoreMilestone = this.score;
+            this.playSound(this.scoreSound);
+          }
+          
           this.updateUI();
         }
         
@@ -254,18 +367,24 @@ import Layout from '../layouts/Layout.astro';
     }
     
     checkCollisions() {
+      // Bird collision box (slightly smaller than visual size for better gameplay)
+      const birdLeft = this.bird.x + 10;
+      const birdRight = this.bird.x + this.bird.width - 10;
+      const birdTop = this.bird.y + 10;
+      const birdBottom = this.bird.y + this.bird.height - 10;
+      
       // Ground and ceiling
-      if (this.bird.y + this.bird.height > this.canvas.height || this.bird.y < 0) {
+      if (birdBottom > this.canvas.height || birdTop < 0) {
         this.gameOver();
         return;
       }
       
       // Pipe collisions
       for (const pipe of this.pipes) {
-        if (this.bird.x + this.bird.width > pipe.x && 
-            this.bird.x < pipe.x + this.pipeWidth) {
-          if (this.bird.y < pipe.topHeight || 
-              this.bird.y + this.bird.height > pipe.bottomY) {
+        if (birdRight > pipe.x && 
+            birdLeft < pipe.x + this.pipeWidth) {
+          if (birdTop < pipe.topHeight || 
+              birdBottom > pipe.bottomY) {
             this.gameOver();
             return;
           }
@@ -345,34 +464,46 @@ import Layout from '../layouts/Layout.astro';
       this.ctx.translate(this.bird.x + this.bird.width / 2, this.bird.y + this.bird.height / 2);
       this.ctx.rotate(this.bird.rotation);
       
-      // Bird body
-      this.ctx.fillStyle = '#fde047';
-      this.ctx.strokeStyle = '#eab308';
-      this.ctx.lineWidth = 2;
-      this.ctx.beginPath();
-      this.ctx.ellipse(0, 0, this.bird.width / 2, this.bird.height / 2, 0, 0, Math.PI * 2);
-      this.ctx.fill();
-      this.ctx.stroke();
-      
-      // Bird eye
-      this.ctx.fillStyle = 'white';
-      this.ctx.beginPath();
-      this.ctx.arc(8, -5, 6, 0, Math.PI * 2);
-      this.ctx.fill();
-      
-      this.ctx.fillStyle = 'black';
-      this.ctx.beginPath();
-      this.ctx.arc(10, -5, 3, 0, Math.PI * 2);
-      this.ctx.fill();
-      
-      // Bird beak
-      this.ctx.fillStyle = '#f97316';
-      this.ctx.beginPath();
-      this.ctx.moveTo(this.bird.width / 2, 0);
-      this.ctx.lineTo(this.bird.width / 2 + 10, -2);
-      this.ctx.lineTo(this.bird.width / 2 + 10, 2);
-      this.ctx.closePath();
-      this.ctx.fill();
+      if (this.imageLoaded && this.drogImage.complete) {
+        // Draw drog image - square dimensions for 1:1 aspect ratio
+        const imageSize = this.bird.width; // Use same width and height for square
+        this.ctx.drawImage(
+          this.drogImage,
+          -imageSize / 2,
+          -imageSize / 2,
+          imageSize,
+          imageSize
+        );
+      } else {
+        // Fallback: draw simple bird
+        this.ctx.fillStyle = '#fde047';
+        this.ctx.strokeStyle = '#eab308';
+        this.ctx.lineWidth = 2;
+        this.ctx.beginPath();
+        this.ctx.ellipse(0, 0, this.bird.width / 2, this.bird.height / 2, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.stroke();
+        
+        // Bird eye
+        this.ctx.fillStyle = 'white';
+        this.ctx.beginPath();
+        this.ctx.arc(8, -5, 6, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        this.ctx.fillStyle = 'black';
+        this.ctx.beginPath();
+        this.ctx.arc(10, -5, 3, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Bird beak
+        this.ctx.fillStyle = '#f97316';
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.bird.width / 2, 0);
+        this.ctx.lineTo(this.bird.width / 2 + 10, -2);
+        this.ctx.lineTo(this.bird.width / 2 + 10, 2);
+        this.ctx.closePath();
+        this.ctx.fill();
+      }
       
       this.ctx.restore();
     }
