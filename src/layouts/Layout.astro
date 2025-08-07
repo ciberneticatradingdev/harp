@@ -19,7 +19,7 @@ const isHomePage = Astro.url.pathname === "/";
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 		<!-- DNS prefetch for external resources -->
 		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 		<link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -100,6 +100,36 @@ const isHomePage = Astro.url.pathname === "/";
 				margin: 0;
 				padding: 0;
 				background-color: #00c0ff;
+			}
+			
+			/* Safari Mobile Specific Fixes */
+			@supports (-webkit-touch-callout: none) {
+				/* Safari mobile specific styles */
+				html {
+					height: -webkit-fill-available;
+				}
+				
+				body {
+					height: -webkit-fill-available;
+					min-height: -webkit-fill-available;
+					position: fixed;
+					width: 100%;
+					top: 0;
+					left: 0;
+					overflow: hidden;
+				}
+			}
+			
+			/* iOS Safari viewport fix */
+			@media screen and (max-width: 768px) {
+				html, body {
+					height: 100vh;
+					height: 100dvh;
+					height: -webkit-fill-available;
+					overflow: hidden;
+					position: fixed;
+					width: 100%;
+				}
 			}
 		</style>
 		<meta name="generator" content={Astro.generator} />
