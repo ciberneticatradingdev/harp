@@ -20,16 +20,16 @@ import Layout from '../layouts/Layout.astro';
         <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 max-w-md mx-4">
           <div class="flex items-center justify-center gap-4 mb-4">
             <img src="/game/dumb-inu-rocket.png" alt="Dumb Inu" class="w-16 h-16" />
-            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">FLAPPY DUMB INU</h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">FLAPPY DUMB</h1>
           </div>
           <p class="text-lg md:text-xl text-white/90 mb-6">Tap or press SPACE to fly!</p>
           
           <!-- Game Mode Selection -->
           <div class="space-y-4">
-            <button id="playAsGuestBtn" class="w-full bg-[#62a14d] hover:bg-[#4a8a3a] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+            <button id="playAsGuestBtn" class="w-full bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
               🎮 Play as Guest
             </button>
-            <button id="connectWalletBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+            <button id="connectWalletBtn" class="w-full bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
               🔗 Connect Wallet & Play
             </button>
           </div>
@@ -68,10 +68,10 @@ import Layout from '../layouts/Layout.astro';
                 class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:border-purple-400"
               />
               <div class="flex gap-2">
-                <button id="saveScoreBtn" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
+                <button id="saveScoreBtn" class="flex-1 bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
                   💾 Save Score
                 </button>
-                <button id="skipSaveBtn" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
+                <button id="skipSaveBtn" class="flex-1 bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
                   Skip
                 </button>
               </div>
@@ -79,10 +79,10 @@ import Layout from '../layouts/Layout.astro';
           </div>
           
           <div class="flex gap-4 justify-center flex-wrap">
-            <button id="restartBtn" class="bg-[#62a14d] hover:bg-[#4a8a3a] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
+            <button id="restartBtn" class="bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg">
               PLAY AGAIN
             </button>
-            <a href="/leaderboard" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg hover:no-underline">
+            <a href="/leaderboard" class="bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-4 px-6 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg hover:no-underline">
               VIEW LEADERBOARD
             </a>
           </div>
@@ -109,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
       <div id="walletControls" class="absolute top-4 right-4 md:top-4 md:right-4 pointer-events-auto z-50">
         <!-- Guest Mode: Connect Wallet Button -->
         <div id="guestWalletControl" class="hidden">
-          <button id="topConnectWalletBtn" class="bg-purple-600 hover:bg-purple-700 backdrop-blur-md text-white font-bold py-2 px-4 rounded-full text-sm border border-white/30 transition-all transform hover:scale-105 shadow-lg">
+          <button id="topConnectWalletBtn" class="bg-[#fa7e01] hover:bg-[#e06d00] backdrop-blur-md text-white font-bold py-2 px-4 rounded-full text-sm border border-white/30 transition-all transform hover:scale-105 shadow-lg">
             🔗 Connect Wallet
           </button>
         </div>
@@ -123,7 +123,7 @@ import Layout from '../layouts/Layout.astro';
           <!-- Disconnect Dropdown -->
           <div id="walletDropdown" class="absolute top-full right-0 mt-2 bg-black/80 backdrop-blur-md rounded-lg border border-white/30 p-2 min-w-48 hidden">
             <div class="text-white/70 text-xs mb-2 font-mono break-all" id="walletAddressFull"></div>
-            <button id="disconnectWalletBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded text-sm transition-all">
+            <button id="disconnectWalletBtn" class="w-full bg-[#fa7e01] hover:bg-[#e06d00] text-white font-bold py-2 px-3 rounded text-sm transition-all">
               🔌 Disconnect Wallet
             </button>
           </div>
@@ -499,9 +499,7 @@ import Layout from '../layouts/Layout.astro';
       this.pipeGap = 200;
       this.pipeSpeed = 3;
       
-      // Background elements
-      this.clouds = [];
-      this.initClouds();
+      // Background elements (clouds removed)
       
       // Animation
       this.lastTime = 0;
@@ -634,7 +632,6 @@ import Layout from '../layouts/Layout.astro';
       // Resize handler
       window.addEventListener('resize', () => {
         this.setupCanvas();
-        this.initClouds();
       });
       
       // Mobile detection
@@ -809,16 +806,7 @@ import Layout from '../layouts/Layout.astro';
     }
     
     initClouds() {
-      this.clouds = [];
-      const cloudCount = Math.floor(this.canvas.width / 150);
-      for (let i = 0; i < cloudCount; i++) {
-        this.clouds.push({
-          x: Math.random() * this.canvas.width,
-          y: Math.random() * this.canvas.height * 0.3,
-          size: 30 + Math.random() * 40,
-          speed: 0.5 + Math.random() * 1
-        });
-      }
+      // Clouds functionality removed
     }
     
     addPipe() {
@@ -877,14 +865,7 @@ import Layout from '../layouts/Layout.astro';
       // Check collisions
       this.checkCollisions();
       
-      // Update clouds
-      this.clouds.forEach(cloud => {
-        cloud.x -= cloud.speed;
-        if (cloud.x + cloud.size < 0) {
-          cloud.x = this.canvas.width;
-          cloud.y = Math.random() * this.canvas.height * 0.3;
-        }
-      });
+      // Clouds removed
     }
     
     checkCollisions() {
@@ -958,15 +939,11 @@ import Layout from '../layouts/Layout.astro';
     }
     
     draw() {
-      // Clear canvas with gradient background
-      const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-      gradient.addColorStop(0, '#00c0ff');
-      gradient.addColorStop(1, '#0099cc');
-      this.ctx.fillStyle = gradient;
+      // Clear canvas with solid background
+      this.ctx.fillStyle = '#f5c303';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       
-      // Draw clouds
-      this.drawClouds();
+      // Clouds removed
       
       // Draw pipes
       this.drawPipes();
@@ -976,19 +953,12 @@ import Layout from '../layouts/Layout.astro';
     }
     
     drawClouds() {
-      this.ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-      this.clouds.forEach(cloud => {
-        this.ctx.beginPath();
-        this.ctx.arc(cloud.x, cloud.y, cloud.size, 0, Math.PI * 2);
-        this.ctx.arc(cloud.x + cloud.size * 0.5, cloud.y, cloud.size * 0.8, 0, Math.PI * 2);
-        this.ctx.arc(cloud.x + cloud.size, cloud.y, cloud.size * 0.6, 0, Math.PI * 2);
-        this.ctx.fill();
-      });
+      // Clouds functionality removed
     }
     
     drawPipes() {
-      this.ctx.fillStyle = '#62a14d';
-      this.ctx.strokeStyle = '#4a8a3a';
+      this.ctx.fillStyle = '#fa7e01';
+      this.ctx.strokeStyle = '#e06d00';
       this.ctx.lineWidth = 3;
       
       this.pipes.forEach(pipe => {
