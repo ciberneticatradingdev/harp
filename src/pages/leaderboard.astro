@@ -2,23 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="Drog Flappy Bird - Leaderboard"
-  description="Check out the top scores in Drog Flappy Bird! See how you rank against other players."
-  keywords="drog leaderboard, flappy bird scores, drog memecoin, high scores"
-  canonicalURL="https://drog.fun/leaderboard"
+<Layout
+	title="Dumb Inu Flappy Bird - Leaderboard"
+	description="Check out the top scores in Dumb Inu Flappy Bird! See how you rank against other players."
+	keywords="dumb inu leaderboard, flappy bird scores, dumb inu memecoin, high scores"
+	canonicalURL="https://dumbinu.fun/leaderboard"
   robots="index, follow"
 >
   <div id="walletProvider"></div>
-  <div class="min-h-screen bg-gradient-to-b from-[#00c0ff] to-[#0099cc] py-8">
+  <div class="min-h-screen bg-[#f5c303] py-8">
     <div class="container mx-auto px-4">
       <!-- Header -->
       <div class="text-center mb-8">
         <div class="flex items-center justify-center gap-4 mb-4">
-          <img src="/game/drog.png" alt="Drog" class="w-16 h-16" />
+          <img src="/game/dumb-inu-rocket.png" alt="Dumb Inu" class="w-16 h-16" />
           <h1 class="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">LEADERBOARD</h1>
         </div>
-        <p class="text-xl text-white/90">Top Flappy Drog Players</p>
+        <p class="text-xl text-white/90">Top Flappy Dumb Inu Players</p>
       </div>
 
       <!-- Navigation -->
@@ -214,13 +214,15 @@ import Layout from '../layouts/Layout.astro';
     setupEventListeners() {
       // Filter changes
       document.getElementById('timeFilter')?.addEventListener('change', (e) => {
-        this.currentFilter = e.target.value;
+        const target = e.target as HTMLSelectElement;
+        this.currentFilter = target.value;
         this.currentPage = 1;
         this.loadLeaderboard();
       });
       
       document.getElementById('limitFilter')?.addEventListener('change', (e) => {
-        this.currentLimit = parseInt(e.target.value);
+        const target = e.target as HTMLSelectElement;
+        this.currentLimit = parseInt(target.value);
         this.currentPage = 1;
         this.loadLeaderboard();
       });
@@ -379,11 +381,11 @@ import Layout from '../layouts/Layout.astro';
       
       // Update buttons
       if (prevBtn) {
-        prevBtn.disabled = this.currentPage === 1;
+        (prevBtn as HTMLButtonElement).disabled = this.currentPage === 1;
       }
       
       if (nextBtn) {
-        nextBtn.disabled = scoresCount < this.pageSize;
+        (nextBtn as HTMLButtonElement).disabled = scoresCount < this.pageSize;
       }
       
       if (pageInfo) {

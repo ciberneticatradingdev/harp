@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="Drog Flappy Bird - Play the Game!"
-  description="Play the official Drog Flappy Bird game. Navigate through obstacles and beat your high score!"
-  keywords="drog game, flappy bird, drog memecoin, browser game"
-  canonicalURL="https://drog.fun/game"
+  title="Dumb Inu Flappy Bird - Play the Game!"
+  description="Play the official Dumb Inu Flappy Bird game. Navigate through obstacles and beat your high score!"
+  keywords="dumb inu game, flappy bird, dumb inu memecoin, browser game"
+  canonicalURL="https://dumbinu.fun/game"
   robots="index, follow"
 >
   <div id="walletProvider"></div>
-  <div id="gameContainer" class="w-full h-screen bg-gradient-to-b from-[#00c0ff] to-[#0099cc] flex items-center justify-center overflow-hidden">
+  <div id="gameContainer" class="w-full h-screen bg-[#f5c303] flex items-center justify-center overflow-hidden">
     <canvas id="gameCanvas" class="md:border-2 md:border-white/20 md:rounded-lg md:shadow-2xl"></canvas>
     
     <!-- Game UI Overlay -->
@@ -19,8 +19,8 @@ import Layout from '../layouts/Layout.astro';
       <div id="startScreen" class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 pointer-events-auto">
         <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 max-w-md mx-4">
           <div class="flex items-center justify-center gap-4 mb-4">
-            <img src="/game/drog.png" alt="Drog" class="w-16 h-16" />
-            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">FLAPPY DROG</h1>
+            <img src="/game/dumb-inu-rocket.png" alt="Dumb Inu" class="w-16 h-16" />
+            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">FLAPPY DUMB INU</h1>
           </div>
           <p class="text-lg md:text-xl text-white/90 mb-6">Tap or press SPACE to fly!</p>
           
@@ -455,7 +455,7 @@ import Layout from '../layouts/Layout.astro';
       // Game state
       this.gameState = 'start'; // 'start', 'playing', 'gameOver'
       this.score = 0;
-      this.bestScore = parseInt(localStorage.getItem('drogBirdBest') || '0');
+      this.bestScore = parseInt(localStorage.getItem('dumbInuBirdBest') || '0');
       this.lastScoreMilestone = 0; // Track last milestone for score sound
       this.inputBlocked = false; // Block input during score saving
       
@@ -466,17 +466,17 @@ import Layout from '../layouts/Layout.astro';
       this.scoreSound.volume = 0.4;
       this.audioEnabled = true;
       
-      // Drog image setup
-      this.drogImage = new Image();
-      this.drogImage.src = '/game/drog.png';
+      // Dumb Inu image setup
+        this.dumbInuImage = new Image();
+        this.dumbInuImage.src = '/game/dumb-inu-rocket.png';
       this.imageLoaded = false;
-      this.drogImage.onload = () => {
+      this.dumbInuImage.onload = () => {
         this.imageLoaded = true;
       };
-      this.drogImage.onerror = () => {
-        console.warn('Could not load drog.png, using fallback');
-        this.imageLoaded = false;
-      };
+      this.dumbInuImage.onerror = () => {
+          console.warn('Could not load dumb-inu-rocket.png, using fallback');
+          this.imageLoaded = false;
+        };
       
       // Preload audio
       this.preloadAudio();
@@ -917,7 +917,7 @@ import Layout from '../layouts/Layout.astro';
       this.gameState = 'gameOver';
       if (this.score > this.bestScore) {
         this.bestScore = this.score;
-        localStorage.setItem('drogBirdBest', this.bestScore.toString());
+        localStorage.setItem('dumbInuBirdBest', this.bestScore.toString());
       }
       
       // Handle score saving based on game mode
@@ -1020,11 +1020,11 @@ import Layout from '../layouts/Layout.astro';
       this.ctx.translate(this.bird.x + this.bird.width / 2, this.bird.y + this.bird.height / 2);
       this.ctx.rotate(this.bird.rotation);
       
-      if (this.imageLoaded && this.drogImage.complete) {
-        // Draw drog image - square dimensions for 1:1 aspect ratio
+      if (this.imageLoaded && this.dumbInuImage.complete) {
+        // Draw dumb inu image - square dimensions for 1:1 aspect ratio
         const imageSize = this.bird.width; // Use same width and height for square
         this.ctx.drawImage(
-          this.drogImage,
+          this.dumbInuImage,
           -imageSize / 2,
           -imageSize / 2,
           imageSize,
