@@ -13,125 +13,10 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
 >
   <!-- seccion 1 -->
 
-  <div class="min-h-screen bg-[#f7eb1b] flex flex-col items-center py-10">
-    <h1 class="text-black text-4xl font-bold">
-      just be happy
-    </h1>
-
-    <video src="/videohappy.mp4" autoplay muted loop class="w-96 h-96 mt-10"/>
-
-    <h1 class="text-black text-center mt-8 text-6xl font-bold">
-      happycoin
-    </h1>
-
-    <a href={BUY_URL} target="_blank" class="p-4 font-thin px-8 text-2xl mt-10 bg-[#fa7e01] rounded-[35px] byrd-medium-btn inline-block text-white hover:no-underline hover:scale-110 transition-all text-center"> 
-      buy now
-    </a>
-
-    <div class="w-full gap-8 mt-6 flex justify-center">
-      <a href={TWITTER_URL} target="_blank" class="hover:scale-125 transition-transform">
-        <img src="/social/x-icon.svg" alt="x icon" class="w-10 h-10">
-      </a>
-
-      <a href={DEXSCREENER_URL} target="_blank" class="hover:scale-125 transition-transform">
-        <img src="/social/dex-icon.svg" alt="dexscreener icon" class="w-10 h-10">
-      </a>
-    </div>
-
-  </div>
-
-  <!-- Nueva sección sobre HappyCoin -->
-  <div class="min-h-screen bg-[#f7eb1b] flex flex-col items-center justify-center py-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-black text-5xl md:text-6xl font-bold mb-8 byrd-medium-btn">
-        Welcome to HappyCoin
-      </h2>
-      
-      <div class="rounded-3xl p-8 md:p-12 mb-8">
-        <p class="text-black text-xl md:text-2xl leading-relaxed mb-6">
-          In a world full of financial uncertainty, <span class="font-bold text-[#fa7e01]">HappyCoin</span> emerges as an oasis of joy in the Solana ecosystem.
-        </p>
-        
-        <p class="text-black text-lg md:text-xl leading-relaxed mb-6">
-          We're not just another memecoin. We're a community built on <span class="font-bold">positivity, prosperity, and genuine connections</span> in the crypto space.
-        </p>
-        
-        <p class="text-black text-lg md:text-xl leading-relaxed mb-6">
-          In the crypto meme industry, where volatility and chaos reign, HappyCoin represents <span class="font-bold text-[#fa7e01]">stability, community, and authentic joy</span> for all our holders.
-        </p>
-        
-        <div class="grid md:grid-cols-3 gap-6 mt-12">
-          <div class="rounded-2xl p-6 border border-white/10">
-            <div class="text-4xl mb-4">😊</div>
-            <h3 class="text-black font-bold text-xl mb-2">Real Happiness</h3>
-            <p class="text-black/80 text-sm">We build wealth while cultivating authentic joy in our community.</p>
-          </div>
-          
-          <div class="rounded-2xl p-6 border border-white/10">
-            <div class="text-4xl mb-4">🚀</div>
-            <h3 class="text-black font-bold text-xl mb-2">Solana Innovation</h3>
-            <p class="text-black/80 text-sm">We leverage Solana's speed and efficiency to create unique experiences.</p>
-          </div>
-          
-          <div class=" rounded-2xl p-6 border border-white/10">
-            <div class="text-4xl mb-4">🌟</div>
-            <h3 class="text-black font-bold text-xl mb-2">Community</h3>
-            <p class="text-black/80 text-sm">More than holders, we're a family united by the pursuit of prosperity and joy.</p>
-          </div>
-        </div>
-      </div>
-      
-      <p class="text-black text-lg md:text-xl font-medium">
-          Join the HappyCoin community today. <br>
-          <span class="text-[#fa7e01] font-bold">Where crypto meets genuine happiness and prosperity.</span>
-        </p>
-        
-        <!-- Sección adicional -->
-        <div class="mt-16 bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-black/20">
-          <h3 class="text-black text-3xl md:text-4xl font-bold mb-6">Why Choose HappyCoin?</h3>
-          
-          <p class="text-black text-lg md:text-xl leading-relaxed mb-6">
-            HappyCoin isn't just about financial gains - it's about building a sustainable ecosystem where every holder benefits from our collective success. Our tokenomics are designed to reward long-term believers while maintaining healthy market dynamics.
-          </p>
-          
-          <p class="text-black text-lg md:text-xl leading-relaxed mb-6">
-            Built on Solana's lightning-fast blockchain, HappyCoin offers near-instant transactions with minimal fees. This means more money stays in your pocket, and more happiness in your wallet.
-          </p>
-          
-          <div class="grid md:grid-cols-2 gap-8 mt-8">
-            <div class="text-center">
-              <div class="text-5xl mb-4">💎</div>
-              <h4 class="text-black font-bold text-xl mb-2">Diamond Hands Rewards</h4>
-              <p class="text-black/80 text-sm">Long-term holders receive exclusive benefits and rewards for their loyalty to the HappyCoin ecosystem.</p>
-            </div>
-            
-            <div class="text-center">
-              <div class="text-5xl mb-4">⚡</div>
-              <h4 class="text-black font-bold text-xl mb-2">Lightning Fast</h4>
-              <p class="text-black/80 text-sm">Powered by Solana's high-performance blockchain for instant transactions and minimal fees.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-12 text-center">
-          <p class="text-black text-xl md:text-2xl font-bold mb-4">
-            Ready to spread some happiness?
-          </p>
-          <p class="text-black/80 text-lg mb-8">
-            Join thousands of happy holders who have already discovered the joy of HappyCoin.
-          </p>
-          
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href={BUY_URL} target="_blank" class="byrd-medium-btn bg-[#fa7e01] hover:bg-[#e56d00] text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105">
-              Buy HappyCoin Now
-            </a>
-            
-            <a href={TELEGRAM_URL} target="_blank" class="byrd-medium-btn bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105">
-              Join Community
-            </a>
-          </div>
-        </div>
-    </div>
+  <div class="min-h-screen bg-[url('/heaven.jpg')] bg-cover flex flex-col items-center justify-center py-10">
+    <button id="enterHeavenBtn" class="byrd-medium-btn text-4xl font-bold text-white p-4 rounded-full bg-[#d72d0e] shadow-lg hover:bg-[#c52a0d] transition-colors">
+      ENTER HEAVEN
+    </button>   
   </div>
 
     <!-- Modal para ver imágenes -->
@@ -141,6 +26,23 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
           ×
         </button>
         <img id="modalImage" src="" alt="Meme" class="max-w-full max-h-full object-contain rounded-lg">
+      </div>
+    </div>
+
+    <!-- Modal para video de Heaven -->
+    <div id="videoModal" class="fixed inset-0 bg-black z-[60] hidden items-center justify-center">
+      <div class="relative w-full h-full">
+        <button id="closeVideoModal" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors z-10">
+          ×
+        </button>
+        <video id="heavenVideo" class="w-full h-full object-cover" autoplay muted>
+          <source src="/heaven2.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+        <audio id="heavenAudio" loop>
+          <source src="/heaven.mp3" type="audio/mpeg">
+          Tu navegador no soporta el elemento audio.
+        </audio>
       </div>
     </div>
 
@@ -261,6 +163,69 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
     updatePosition();
   });
   
+  // Enter Heaven button functionality
+   document.addEventListener('DOMContentLoaded', () => {
+     const enterHeavenBtn = document.getElementById('enterHeavenBtn');
+     const videoModal = document.getElementById('videoModal');
+     const heavenVideo = document.getElementById('heavenVideo') as HTMLVideoElement;
+     const heavenAudio = document.getElementById('heavenAudio') as HTMLAudioElement;
+     const closeVideoModal = document.getElementById('closeVideoModal');
+
+     // Open video modal when clicking Enter Heaven button
+     enterHeavenBtn?.addEventListener('click', () => {
+       videoModal?.classList.remove('hidden');
+       videoModal?.classList.add('flex');
+       document.body.style.overflow = 'hidden';
+       
+       // Play video from beginning
+       if (heavenVideo) {
+         heavenVideo.currentTime = 0;
+         heavenVideo.play();
+       }
+       
+       // Play audio in loop starting from second 1
+        if (heavenAudio) {
+          heavenAudio.currentTime = 1;
+          heavenAudio.play();
+        }
+     });
+
+     // Close video modal
+     const closeVideoModalFunction = () => {
+       videoModal?.classList.add('hidden');
+       videoModal?.classList.remove('flex');
+       document.body.style.overflow = 'auto';
+       
+       // Pause and reset video
+       if (heavenVideo) {
+         heavenVideo.pause();
+         heavenVideo.currentTime = 0;
+       }
+       
+       // Pause and reset audio
+        if (heavenAudio) {
+          heavenAudio.pause();
+          heavenAudio.currentTime = 1;
+        }
+     };
+
+    closeVideoModal?.addEventListener('click', closeVideoModalFunction);
+
+    // Close video modal when clicking outside the video
+    videoModal?.addEventListener('click', (e) => {
+      if (e.target === videoModal) {
+        closeVideoModalFunction();
+      }
+    });
+
+    // Close video modal with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal && !videoModal.classList.contains('hidden')) {
+        closeVideoModalFunction();
+      }
+    });
+  });
+
   // Modal functionality for memes
    document.addEventListener('DOMContentLoaded', () => {
      const modal = document.getElementById('imageModal');
