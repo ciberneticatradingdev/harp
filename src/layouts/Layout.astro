@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "HappyCoin - The Solana Memecoin for True Happiness",
-  description = "HappyCoin brings joy and prosperity to the Solana ecosystem. Join our community of happiness seekers and experience genuine fun in the crypto world.",
-  keywords = "happycoin, memecoin, solana, cryptocurrency, happiness, joy, community, meme token, crypto investment, solana memecoin, positive vibes",
+  title = "Pearly Gates - Enter Heaven | Only on heaven.xyz",
+  description = "Welcome to Pearly Gates - Your gateway to heaven. Experience the divine journey and join the heavenly community. Only available on heaven.xyz",
+  keywords = "pearly gates, heaven, divine, heavenly journey, spiritual, gates of heaven, celestial, paradise, heaven.xyz, divine experience",
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
   robots = "index, follow"
 } = Astro.props;
@@ -131,15 +131,15 @@ const isHomePage = Astro.url.pathname === "/";
 		
 		<!-- TWITTER/X CARD DATA -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@HappyCoinSol" />
-		<meta name="twitter:creator" content="@HappyCoinSol" />
+		<meta name="twitter:site" content="@PearlyGatesHeaven" />
+		<meta name="twitter:creator" content="@PearlyGatesHeaven" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
-		<meta name="twitter:image:alt" content="" />
+		<meta name="twitter:image:alt" content="Pearly Gates - Enter Heaven" />
 		
 		<!-- TELEGRAM SPECIFIC -->
-		<meta property="telegram:channel" content="@HappyCoinSolana" />
+		<meta property="telegram:channel" content="@PearlyGatesHeaven" />
 		<meta name="telegram:image" content={`${canonicalURL}/seo/banner.png`} />
 		
 		<!-- WHATSAPP AND MESSAGING APPS -->
