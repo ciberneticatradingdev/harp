@@ -14,8 +14,9 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   <!-- seccion 1 -->
 
   <div class="min-h-screen bg-[url('/heaven.jpg')] bg-cover bg-center flex flex-col items-center justify-center py-10">
-    <button id="enterHeavenBtn" class="byrd-medium-btn text-4xl font-bold text-white p-4 rounded-full bg-[#d72d0e] shadow-lg hover:bg-[#c52a0d] transition-colors">
-      ENTER HEAVEN
+    <button id="enterHeavenBtn" class="byrd-medium-btn text-4xl font-bold text-white p-6 px-12 rounded-full bg-gradient-to-br from-sky-400 via-blue-500 to-blue-600 shadow-2xl hover:from-sky-300 hover:via-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 border-4 border-yellow-300 hover:border-yellow-200 relative overflow-hidden heavenly-button">
+      <span class="relative z-10 drop-shadow-lg">ENTER HEAVEN</span>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent animate-pulse"></div>
     </button>   
   </div>
 
@@ -37,12 +38,52 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
         </button>
         <video id="heavenVideo" class="w-full h-full object-cover" autoplay muted preload="auto">
           <source src="/heaven2.mp4" type="video/mp4">
-          Tu navegador no soporta el elemento video.
+          Your browser does not support the video element.
         </video>
         <audio id="heavenAudio" loop preload="auto">
           <source src="/heaven.mp3" type="audio/mpeg">
-          Tu navegador no soporta el elemento audio.
+          Your browser does not support the audio element.
         </audio>
+        
+        <!-- End of video overlay elements -->
+        <div id="videoEndOverlay" class="absolute inset-0 bg-black/50 hidden items-center justify-center flex-col z-20">
+          <div class="text-center space-y-8 p-8 max-w-2xl">
+            <!-- Title -->
+            <h1 class="text-6xl font-bold text-white mb-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="endTitle">
+              WELCOME TO HEAVEN
+            </h1>
+            
+            <!-- Contract Address Section -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="contractSection" style="transition-delay: 0.5s;">
+              <h2 class="text-2xl font-semibold text-white mb-4">Contract Address</h2>
+              <div class="flex items-center justify-between bg-black/30 rounded-lg p-4">
+                <span class="text-white font-mono text-sm break-all" id="contractAddress">CA WILL UPDATE SOON</span>
+                <button id="copyAddressBtn" class="ml-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-lg hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 font-semibold">
+                  COPY
+                </button>
+              </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="socialLinks" style="transition-delay: 1s;">
+              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                Telegram
+              </a>
+              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                X
+              </a>
+              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                DexScreener
+              </a>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="text-center opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="additionalInfo" style="transition-delay: 1.5s;">
+              <p class="text-white/80 text-lg mb-4">Join the heavenly journey</p>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -95,6 +136,41 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   
   .byrd-medium-btn {
     font-family: 'ByrdMedium', 'Byrd Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  }
+
+  .heavenly-button {
+    box-shadow: 
+      0 0 30px rgba(255, 215, 0, 0.4),
+      0 0 60px rgba(135, 206, 235, 0.3),
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .heavenly-button:hover {
+    box-shadow: 
+      0 0 40px rgba(255, 215, 0, 0.6),
+      0 0 80px rgba(135, 206, 235, 0.5),
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  @keyframes heavenlyGlow {
+    0%, 100% {
+      box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(135, 206, 235, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.6),
+        0 0 100px rgba(135, 206, 235, 0.5),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .heavenly-button {
+    animation: heavenlyGlow 3s ease-in-out infinite;
   }
 </style>
 
@@ -165,6 +241,9 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   
   // Enter Heaven button functionality
    document.addEventListener('DOMContentLoaded', () => {
+     // Contract Address Variable - Update this value to change what's displayed and copied
+     const CONTRACT_ADDRESS = "CA WILL UPDATE SOON";
+     
      const enterHeavenBtn = document.getElementById('enterHeavenBtn') as HTMLButtonElement;
      const videoModal = document.getElementById('videoModal');
      const heavenVideo = document.getElementById('heavenVideo') as HTMLVideoElement;
@@ -174,26 +253,52 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
      // Variables para controlar la carga de medios
      let videoLoaded = false;
      let audioLoaded = false;
+     let loadingTimeout = null;
 
      // Deshabilitar el botón inicialmente
      if (enterHeavenBtn) {
        enterHeavenBtn.disabled = true;
        enterHeavenBtn.style.opacity = '0.5';
        enterHeavenBtn.style.cursor = 'not-allowed';
-       enterHeavenBtn.textContent = 'CARGANDO...';
+       enterHeavenBtn.textContent = 'LOADING...';
      }
 
-     // Función para verificar si ambos medios están cargados
-     const checkMediaLoaded = () => {
-       if (videoLoaded && audioLoaded && enterHeavenBtn) {
+     // Función para habilitar el botón (con o sin medios cargados)
+     const enableButton = () => {
+       if (enterHeavenBtn) {
          enterHeavenBtn.disabled = false;
          enterHeavenBtn.style.opacity = '1';
          enterHeavenBtn.style.cursor = 'pointer';
          enterHeavenBtn.textContent = 'ENTER HEAVEN';
        }
+       if (loadingTimeout) {
+         clearTimeout(loadingTimeout);
+         loadingTimeout = null;
+       }
      };
 
-     // Event listeners para la carga del video
+     // Función para verificar si ambos medios están cargados
+     const checkMediaLoaded = () => {
+       if (videoLoaded && audioLoaded) {
+         enableButton();
+       }
+     };
+
+     // Timeout de seguridad: habilitar el botón después de 10 segundos máximo
+     loadingTimeout = setTimeout(() => {
+       console.warn('Media loading timeout - enabling button anyway');
+       enableButton();
+     }, 10000);
+
+     // Fallback adicional: intentar habilitar después de 3 segundos si al menos uno cargó
+      setTimeout(() => {
+        if ((videoLoaded || audioLoaded) && enterHeavenBtn && enterHeavenBtn.disabled) {
+          console.warn('Partial media loading - enabling button');
+          enableButton();
+        }
+      }, 3000);
+
+     // Event listeners for video loading
      if (heavenVideo) {
        heavenVideo.addEventListener('canplaythrough', () => {
          videoLoaded = true;
@@ -201,15 +306,20 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
        });
        
        heavenVideo.addEventListener('error', () => {
-         console.error('Error cargando el video');
-         if (enterHeavenBtn) {
-           enterHeavenBtn.textContent = 'ERROR AL CARGAR';
-           enterHeavenBtn.style.opacity = '0.5';
-         }
+         console.error('Error loading video');
+         // Habilitar el botón incluso si hay error, para no bloquear la experiencia
+         setTimeout(() => {
+           enableButton();
+         }, 1000);
+       });
+       
+       // Event listener for when video ends
+       heavenVideo.addEventListener('ended', () => {
+         showVideoEndOverlay();
        });
      }
 
-     // Event listeners para la carga del audio
+     // Event listeners for audio loading
      if (heavenAudio) {
        heavenAudio.addEventListener('canplaythrough', () => {
          audioLoaded = true;
@@ -217,11 +327,11 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
        });
        
        heavenAudio.addEventListener('error', () => {
-         console.error('Error cargando el audio');
-         if (enterHeavenBtn) {
-           enterHeavenBtn.textContent = 'ERROR AL CARGAR';
-           enterHeavenBtn.style.opacity = '0.5';
-         }
+         console.error('Error loading audio');
+         // Habilitar el botón incluso si hay error, para no bloquear la experiencia
+         setTimeout(() => {
+           enableButton();
+         }, 1000);
        });
      }
 
@@ -250,6 +360,23 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
        videoModal?.classList.remove('flex');
        document.body.style.overflow = 'auto';
        
+       // Hide and reset video end overlay
+       const overlay = document.getElementById('videoEndOverlay');
+       if (overlay) {
+         overlay.classList.add('hidden');
+         overlay.classList.remove('flex');
+         
+         // Reset all animations
+         const elementsToReset = ['endTitle', 'contractSection', 'socialLinks', 'additionalInfo'];
+         elementsToReset.forEach(id => {
+           const element = document.getElementById(id);
+           if (element) {
+             element.style.opacity = '0';
+             element.style.transform = 'translateY(40px)';
+           }
+         });
+       }
+       
        // Pause and reset video
        if (heavenVideo) {
          heavenVideo.pause();
@@ -276,6 +403,81 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && videoModal && !videoModal.classList.contains('hidden')) {
         closeVideoModalFunction();
+      }
+    });
+    
+    // Function to show video end overlay with animations
+    const showVideoEndOverlay = () => {
+      const overlay = document.getElementById('videoEndOverlay');
+      const endTitle = document.getElementById('endTitle');
+      const contractSection = document.getElementById('contractSection');
+      const socialLinks = document.getElementById('socialLinks');
+      const additionalInfo = document.getElementById('additionalInfo');
+      const contractAddressElement = document.getElementById('contractAddress');
+      
+      // Update contract address display
+      if (contractAddressElement) {
+        contractAddressElement.textContent = CONTRACT_ADDRESS;
+      }
+      
+      if (overlay) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        
+        // Animate elements with staggered delays
+        setTimeout(() => {
+          if (endTitle) {
+            endTitle.style.opacity = '1';
+            endTitle.style.transform = 'translateY(0)';
+          }
+        }, 100);
+        
+        setTimeout(() => {
+          if (contractSection) {
+            contractSection.style.opacity = '1';
+            contractSection.style.transform = 'translateY(0)';
+          }
+        }, 600);
+        
+        setTimeout(() => {
+          if (socialLinks) {
+            socialLinks.style.opacity = '1';
+            socialLinks.style.transform = 'translateY(0)';
+          }
+        }, 1100);
+        
+        setTimeout(() => {
+          if (additionalInfo) {
+            additionalInfo.style.opacity = '1';
+            additionalInfo.style.transform = 'translateY(0)';
+          }
+        }, 1600);
+      }
+    };
+    
+    // Copy contract address functionality
+    const copyAddressBtn = document.getElementById('copyAddressBtn');
+    const contractAddress = document.getElementById('contractAddress');
+    
+    copyAddressBtn?.addEventListener('click', async () => {
+      if (contractAddress) {
+        try {
+          await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+          const originalText = copyAddressBtn.textContent;
+          copyAddressBtn.textContent = 'COPIED!';
+          copyAddressBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+          
+          setTimeout(() => {
+            copyAddressBtn.textContent = originalText;
+            copyAddressBtn.style.background = 'linear-gradient(to right, #fbbf24, #d97706)';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+          copyAddressBtn.textContent = 'FAILED';
+          setTimeout(() => {
+            copyAddressBtn.textContent = 'COPY';
+          }, 2000);
+        }
       }
     });
   });
