@@ -4,8 +4,8 @@
 export const CA = "CA_WILL_UPDATE_SOON";
 
 // Social Media Links
-export const TWITTER_URL = "https://x.com/pumphappycoin";
-export const TELEGRAM_URL = "https://x.com/i/communities/1957815573301067848";
+export const TWITTER_URL = "https://x.com/GatesOnHeaven";
+export const TELEGRAM_URL = "https://x.com/GatesOnHeaven";
 
 // Trading Links
 export const BUY_URL = `https://pump.fun/coin/${CA}`;

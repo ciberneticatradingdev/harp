@@ -13,8 +13,8 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
 >
   <!-- seccion 1 -->
 
-  <div class="min-h-screen bg-[url('/heaven.jpg')] bg-cover bg-center flex flex-col items-center justify-center py-10">
-    <button id="enterHeavenBtn" class="byrd-medium-btn text-4xl font-bold text-white p-6 px-12 rounded-full bg-gradient-to-br from-sky-400 via-blue-500 to-blue-600 shadow-2xl hover:from-sky-300 hover:via-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 border-4 border-yellow-300 hover:border-yellow-200 relative overflow-hidden heavenly-button">
+  <div class="min-h-screen bg-[url('/heaven.png')] bg-cover bg-center flex flex-col items-center justify-center py-10">
+    <button id="enterHeavenBtn" class="byrd-medium-btn text-3xl -mt-12 font-bold text-white p-6 px-12 rounded-full bg-gradient-to-br from-sky-400 via-blue-500 to-blue-600 shadow-2xl hover:from-sky-300 hover:via-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 border-4 border-yellow-300 hover:border-yellow-200 relative overflow-hidden heavenly-button">
       <span class="relative z-10 drop-shadow-lg">ENTER HEAVEN</span>
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent animate-pulse"></div>
     </button>   
@@ -37,7 +37,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
           ×
         </button>
         <video id="heavenVideo" class="w-full h-full object-cover" autoplay muted preload="auto">
-          <source src="/heaven2.mp4" type="video/mp4">
+          <source src="/heaven.mp4" type="video/mp4">
           Your browser does not support the video element.
         </video>
         <audio id="heavenAudio" loop preload="auto">
@@ -50,7 +50,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
           <div class="text-center space-y-8 p-8 max-w-2xl">
             <!-- Title -->
             <h1 class="text-6xl font-bold text-white mb-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="endTitle">
-              WELCOME TO HEAVEN
+              WELCOME TO PEARLY GATES
             </h1>
             
             <!-- Contract Address Section -->
@@ -66,21 +66,22 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
             
             <!-- Social Links -->
             <div class="flex justify-center space-x-6 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="socialLinks" style="transition-delay: 1s;">
-              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                Telegram
+
+              <a href={TWITTER_URL} target="_blank" class="bg-transparent  p-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                <img src="/social/silver-x.png" alt="X (Twitter)" class="w-16 h-16">
               </a>
-              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                X
-              </a>
-              <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                DexScreener
+              <a href={DEXSCREENER_URL} target="_blank" class="bg-transparent  p-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                <img src="/social/dexscreener.png" alt="DexScreener" class="w-16 h-16">
               </a>
             </div>
             
             <!-- Additional Info -->
             <div class="text-center opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="additionalInfo" style="transition-delay: 1.5s;">
-              <p class="text-white/80 text-lg mb-4">Join the heavenly journey</p>
-
+              <p class="text-white/80 text-lg mb-4">JOIN THE HEAVENLY JOURNEY</p>
+              <div class="flex items-center justify-center space-x-2">
+                <img src="/heaven.svg" alt="Heaven" class="w-12 h-12">
+                <p class="text-white/60 text-sm">only on heaven.xyz</p>
+              </div>
             </div>
           </div>
         </div>
