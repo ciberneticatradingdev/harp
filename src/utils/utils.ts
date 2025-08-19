@@ -1,7 +1,7 @@
 // Money Buys Happiness - Memecoin Configuration
 
 // Contract Address (will be updated when deployed)
-export const CA = "CA_WILL_UPDATE_SOON";
+export const CA = "5kuBiWVYFWMs4sYxUdJKpCS4xDRnubbzUU66wyBPV777";
 
 // Social Media Links
 export const TWITTER_URL = "https://x.com/GatesOnHeaven";
