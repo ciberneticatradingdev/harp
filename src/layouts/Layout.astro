@@ -7,7 +7,13 @@ interface Props {
 	robots: string;
 }
 
-const { title, description, keywords, canonicalURL, robots } = Astro.props;
+const {
+  title = "HappyCoin - The Solana Memecoin for True Happiness",
+  description = "HappyCoin brings joy and prosperity to the Solana ecosystem. Join our community of happiness seekers and experience genuine fun in the crypto world.",
+  keywords = "happycoin, memecoin, solana, cryptocurrency, happiness, joy, community, meme token, crypto investment, solana memecoin, positive vibes",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  robots = "index, follow"
+} = Astro.props;
 
 
 
@@ -99,7 +105,7 @@ const isHomePage = Astro.url.pathname === "/";
 			body {
 				margin: 0;
 				padding: 0;
-				background-color: #f5c303;
+				background-color: #f7eb1b;
 			}
 		</style>
 		<meta name="generator" content={Astro.generator} />
@@ -118,22 +124,22 @@ const isHomePage = Astro.url.pathname === "/";
 		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Money Buys Happiness - The memecoin that speaks truth" />
+		<meta property="og:image:alt" content="HappyCoin - The Solana memecoin for true happiness" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:site_name" content="Money Buys Happiness" />
+		<meta property="og:site_name" content="HappyCoin" />
 		<meta property="og:locale" content="en_US" />
 		
 		<!-- TWITTER/X CARD DATA -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@MoneyBuysHappy" />
-		<meta name="twitter:creator" content="@MoneyBuysHappy" />
+		<meta name="twitter:site" content="@HappyCoinSol" />
+		<meta name="twitter:creator" content="@HappyCoinSol" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
 		<meta name="twitter:image:alt" content="" />
 		
 		<!-- TELEGRAM SPECIFIC -->
-		<meta property="telegram:channel" content="@MoneyBuysHappiness" />
+		<meta property="telegram:channel" content="@HappyCoinSolana" />
 		<meta name="telegram:image" content={`${canonicalURL}/seo/banner.png`} />
 		
 		<!-- WHATSAPP AND MESSAGING APPS -->
