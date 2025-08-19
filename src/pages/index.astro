@@ -5,9 +5,9 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
 ---
 
 <Layout
-	title="HappyCoin - The Solana Memecoin for True Happiness"
-	description="HappyCoin brings joy and prosperity to the Solana ecosystem. Join our community of happiness seekers and experience genuine fun in the crypto world."
-	keywords="happycoin, memecoin, solana, cryptocurrency, happiness, joy, community, meme token, crypto investment, solana memecoin, positive vibes"
+	title=""
+	description=""
+	keywords=""
 	canonicalURL=""
 	robots="index, follow"
 >
@@ -35,11 +35,11 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
         <button id="closeVideoModal" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors z-10">
           ×
         </button>
-        <video id="heavenVideo" class="w-full h-full object-cover" autoplay muted>
+        <video id="heavenVideo" class="w-full h-full object-cover" autoplay muted preload="auto">
           <source src="/heaven2.mp4" type="video/mp4">
           Tu navegador no soporta el elemento video.
         </video>
-        <audio id="heavenAudio" loop>
+        <audio id="heavenAudio" loop preload="auto">
           <source src="/heaven.mp3" type="audio/mpeg">
           Tu navegador no soporta el elemento audio.
         </audio>
@@ -165,11 +165,65 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   
   // Enter Heaven button functionality
    document.addEventListener('DOMContentLoaded', () => {
-     const enterHeavenBtn = document.getElementById('enterHeavenBtn');
+     const enterHeavenBtn = document.getElementById('enterHeavenBtn') as HTMLButtonElement;
      const videoModal = document.getElementById('videoModal');
      const heavenVideo = document.getElementById('heavenVideo') as HTMLVideoElement;
      const heavenAudio = document.getElementById('heavenAudio') as HTMLAudioElement;
      const closeVideoModal = document.getElementById('closeVideoModal');
+
+     // Variables para controlar la carga de medios
+     let videoLoaded = false;
+     let audioLoaded = false;
+
+     // Deshabilitar el botón inicialmente
+     if (enterHeavenBtn) {
+       enterHeavenBtn.disabled = true;
+       enterHeavenBtn.style.opacity = '0.5';
+       enterHeavenBtn.style.cursor = 'not-allowed';
+       enterHeavenBtn.textContent = 'CARGANDO...';
+     }
+
+     // Función para verificar si ambos medios están cargados
+     const checkMediaLoaded = () => {
+       if (videoLoaded && audioLoaded && enterHeavenBtn) {
+         enterHeavenBtn.disabled = false;
+         enterHeavenBtn.style.opacity = '1';
+         enterHeavenBtn.style.cursor = 'pointer';
+         enterHeavenBtn.textContent = 'ENTER HEAVEN';
+       }
+     };
+
+     // Event listeners para la carga del video
+     if (heavenVideo) {
+       heavenVideo.addEventListener('canplaythrough', () => {
+         videoLoaded = true;
+         checkMediaLoaded();
+       });
+       
+       heavenVideo.addEventListener('error', () => {
+         console.error('Error cargando el video');
+         if (enterHeavenBtn) {
+           enterHeavenBtn.textContent = 'ERROR AL CARGAR';
+           enterHeavenBtn.style.opacity = '0.5';
+         }
+       });
+     }
+
+     // Event listeners para la carga del audio
+     if (heavenAudio) {
+       heavenAudio.addEventListener('canplaythrough', () => {
+         audioLoaded = true;
+         checkMediaLoaded();
+       });
+       
+       heavenAudio.addEventListener('error', () => {
+         console.error('Error cargando el audio');
+         if (enterHeavenBtn) {
+           enterHeavenBtn.textContent = 'ERROR AL CARGAR';
+           enterHeavenBtn.style.opacity = '0.5';
+         }
+       });
+     }
 
      // Open video modal when clicking Enter Heaven button
      enterHeavenBtn?.addEventListener('click', () => {
