@@ -1,19 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../utils/utils";
+import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, CONTRACT_ADDRESS } from "../utils/utils";
 
 ---
 
 <Layout
-	title=""
-	description=""
-	keywords=""
-	canonicalURL=""
+	title="Harp on Heaven $HARP | Divine Memecoin - Enter the Heavenly Journey"
+	description="Join Harp on Heaven $HARP, the divine memecoin that takes you on a celestial journey. Experience the ultimate crypto adventure in paradise."
+	keywords="harp on heaven, $harp, harp token, memecoin, crypto, divine memecoin, heavenly token, celestial crypto, paradise token, heaven memecoin"
+	canonicalURL="https://heaven.xyz"
 	robots="index, follow"
 >
   <!-- seccion 1 -->
 
-  <div class="min-h-screen bg-[url('/heaven.png')] bg-cover bg-center flex flex-col items-center justify-center py-10">
+  <div class="min-h-screen bg-[url('/heaven.jpeg')] bg-cover bg-center flex flex-col items-center justify-center py-10">
     <button id="enterHeavenBtn" class="byrd-medium-btn text-3xl -mt-12 font-bold text-white p-6 px-12 rounded-full bg-gradient-to-br from-sky-400 via-blue-500 to-blue-600 shadow-2xl hover:from-sky-300 hover:via-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 border-4 border-yellow-300 hover:border-yellow-200 relative overflow-hidden heavenly-button">
       <span class="relative z-10 drop-shadow-lg">ENTER HEAVEN</span>
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent animate-pulse"></div>
@@ -50,7 +50,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
           <div class="text-center space-y-8 p-8 max-w-2xl">
             <!-- Title -->
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="endTitle">
-              WELCOME TO PEARLY GATES
+              HARP ON HEAVEN
             </h1>
             
             <!-- Contract Address Section -->
@@ -187,7 +187,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
     }
 </style>
     
-<script>
+<script define:vars={{ contractAddress: CA }}>
   document.addEventListener('DOMContentLoaded', () => {
     const scrollContent = document.getElementById('scrollContent');
     if (!scrollContent) return;
@@ -242,13 +242,12 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   
   // Enter Heaven button functionality
    document.addEventListener('DOMContentLoaded', () => {
-     // Contract Address Variable - Update this value to change what's displayed and copied
-     const CONTRACT_ADDRESS = "5kuBiWVYFWMs4sYxUdJKpCS4xDRnubbzUU66wyBPV777";
+     // Contract Address is now available from define:vars
      
-     const enterHeavenBtn = document.getElementById('enterHeavenBtn') as HTMLButtonElement;
+     const enterHeavenBtn = document.getElementById('enterHeavenBtn');
      const videoModal = document.getElementById('videoModal');
-     const heavenVideo = document.getElementById('heavenVideo') as HTMLVideoElement;
-     const heavenAudio = document.getElementById('heavenAudio') as HTMLAudioElement;
+     const heavenVideo = document.getElementById('heavenVideo');
+     const heavenAudio = document.getElementById('heavenAudio');
      const closeVideoModal = document.getElementById('closeVideoModal');
 
      // Variables para controlar la carga de medios
@@ -418,7 +417,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
       
       // Update contract address display
       if (contractAddressElement) {
-        contractAddressElement.textContent = CONTRACT_ADDRESS;
+        contractAddressElement.textContent = contractAddress;
       }
       
       if (overlay) {
@@ -458,12 +457,12 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
     
     // Copy contract address functionality
     const copyAddressBtn = document.getElementById('copyAddressBtn');
-    const contractAddress = document.getElementById('contractAddress');
+    const contractAddressElement2 = document.getElementById('contractAddress');
     
     copyAddressBtn?.addEventListener('click', async () => {
-      if (contractAddress) {
+      if (contractAddressElement2) {
         try {
-          await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+          await navigator.clipboard.writeText(contractAddress);
           const originalText = copyAddressBtn.textContent;
           copyAddressBtn.textContent = 'COPIED!';
           copyAddressBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
@@ -486,7 +485,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL } from "../util
   // Modal functionality for memes
    document.addEventListener('DOMContentLoaded', () => {
      const modal = document.getElementById('imageModal');
-     const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+     const modalImage = document.getElementById('modalImage');
      const closeModal = document.getElementById('closeModal');
      const memeItems = document.querySelectorAll('.meme-item');
      

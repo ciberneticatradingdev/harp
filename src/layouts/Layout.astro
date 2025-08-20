@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "Pearly Gates - Enter Heaven | Only on heaven.xyz",
-  description = "Welcome to Pearly Gates - Your gateway to heaven. Experience the divine journey and join the heavenly community. Only available on heaven.xyz",
-  keywords = "pearly gates, heaven, divine, heavenly journey, spiritual, gates of heaven, celestial, paradise, heaven.xyz, divine experience",
+  title = "Harp on Heaven $HARP | Divine Memecoin Journey",
+  description = "Welcome to Harp on Heaven $HARP - Your divine memecoin journey begins here. Join the heavenly community and experience the celestial crypto adventure.",
+  keywords = "harp on heaven, $harp, harp token, memecoin, crypto, divine, heavenly journey, spiritual, celestial, paradise, heaven token, divine experience",
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
   robots = "index, follow"
 } = Astro.props;
@@ -124,22 +124,22 @@ const isHomePage = Astro.url.pathname === "/";
 		<meta property="og:image:secure_url" content={`${canonicalURL}/seo/banner.png`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="" />
+		<meta property="og:image:alt" content="Harp on Heaven $HARP - Divine Memecoin Journey" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:site_name" content="" />
+		<meta property="og:site_name" content="Harp on Heaven $HARP" />
 		<meta property="og:locale" content="en_US" />
 		
 		<!-- TWITTER/X CARD DATA -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@PearlyGatesHeaven" />
-		<meta name="twitter:creator" content="@PearlyGatesHeaven" />
+		<meta name="twitter:site" content="@HarpOnHeaven" />
+		<meta name="twitter:creator" content="@HarpOnHeaven" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${canonicalURL}/seo/banner.png`} />
-		<meta name="twitter:image:alt" content="Pearly Gates - Enter Heaven" />
+		<meta name="twitter:image:alt" content="Harp on Heaven $HARP - Divine Memecoin" />
 		
 		<!-- TELEGRAM SPECIFIC -->
-		<meta property="telegram:channel" content="@PearlyGatesHeaven" />
+		<meta property="telegram:channel" content="@HarpOnHeaven" />
 		<meta name="telegram:image" content={`${canonicalURL}/seo/banner.png`} />
 		
 		<!-- WHATSAPP AND MESSAGING APPS -->
