@@ -293,6 +293,7 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, CONTRACT_ADDRE
      let videoLoaded = false;
      let audioLoaded = false;
      let loadingTimeout = null;
+     let overlayTimeout = null;
 
      // Deshabilitar el botón inicialmente
      if (enterHeavenBtn) {
@@ -352,9 +353,10 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, CONTRACT_ADDRE
          }, 1000);
        });
        
-       // Event listener for when video ends
+       // Event listener for when video ends - loop the video
        heavenVideo.addEventListener('ended', () => {
-         showVideoEndOverlay();
+         heavenVideo.currentTime = 0;
+         heavenVideo.play();
        });
      }
 
@@ -391,6 +393,11 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, CONTRACT_ADDRE
           heavenAudio.currentTime = 5;
           heavenAudio.play();
         }
+        
+        // Show overlay after 3 seconds
+        overlayTimeout = setTimeout(() => {
+          showVideoEndOverlay();
+        }, 3000);
      });
 
      // Close video modal
@@ -398,6 +405,12 @@ import { CA, BUY_URL, TWITTER_URL, TELEGRAM_URL, DEXSCREENER_URL, CONTRACT_ADDRE
        videoModal?.classList.add('hidden');
        videoModal?.classList.remove('flex');
        document.body.style.overflow = 'auto';
+       
+       // Cancel overlay timeout if it's still pending
+       if (overlayTimeout) {
+         clearTimeout(overlayTimeout);
+         overlayTimeout = null;
+       }
        
        // Hide and reset video end overlay
        const overlay = document.getElementById('videoEndOverlay');

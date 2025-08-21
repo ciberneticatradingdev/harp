@@ -1,11 +1,11 @@
 // Harp on Heaven $HARP - Memecoin Configuration
 
 // Contract Address (will be updated when deployed)
-export const CA = "7vAExeo6jd3MNFHa3ycKMxBpwRXotS8WmPFfToo7j777";
+export const CA = "CA WILL UPDATE SOON | CA WILL UPDATE SOON";
 
 // Social Media Links
-export const TWITTER_URL = "https://x.com/i/communities/1957955650543116705";
-export const TELEGRAM_URL = "https://x.com/i/communities/1957955650543116705";
+export const TWITTER_URL = "https://x.com/i/communities/1958585008924631299";
+export const TELEGRAM_URL = "https://x.com/i/communities/1958585008924631299";
 
 // Trading Links
 export const BUY_URL = `https://pump.fun/coin/${CA}`;
